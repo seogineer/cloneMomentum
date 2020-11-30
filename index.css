@@ -10,6 +10,11 @@ body {
     display: block;
 }
 
+.js-weather {
+    font-weight: bold;
+    text-align: right;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
