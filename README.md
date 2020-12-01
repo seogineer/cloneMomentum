@@ -1,6 +1,6 @@
 # cloneMomentum
 
-[view live]: https://seogineer.github.io/cloneMomentum/
+[view live](https://seogineer.github.io/cloneMomentum/, "live view")
 
 ### 기능
 1. Clock
