@@ -1,6 +1,6 @@
 # cloneMomentum
 
-[view live](https://seogineer.github.io/cloneMomentum/, "live view")
+[view live](https://seogineer.github.io/cloneMomentum/)
 
 ### 기능
 1. Clock
@@ -8,5 +8,3 @@
 3. Weather
 4. Greeting
 5. Background
-
-
