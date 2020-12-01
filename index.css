@@ -18,24 +18,27 @@ body {
 }
 
 .js-greetings {
-    font-size: 29px;
+    font-size: 40px;
     text-align: center;
 }
 
 .nameForm, .toDoForm {
+    height: 30px;
     width: 100%;
 }
 
 .js-clock {
-    font-size: 32px;
+    font-size: 50px;
     text-align: center;
 }
 
 .js-toDoList {
+    font-size: 30px;
     list-style: none;
 }
 
 .js-weather {
+    font-size: 30px;
     float: right;
     font-weight: bold;
 }
