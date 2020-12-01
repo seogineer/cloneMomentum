@@ -1,13 +1,12 @@
 # cloneMomentum
 
-### Clock
+[view live]: https://seogineer.github.io/cloneMomentum/
 
-### To-Do List
+### 기능
+1. Clock
+2. To-Do List
+3. Weather
+4. Greeting
+5. Background
 
-### Weather
 
-### Greeting
-
-### Background
-
-https://seogineer.github.io/cloneMomentum/
