@@ -93,7 +93,133 @@ function init(){
 init();
 </code></pre>
 3. Weather
+<pre><code>
+const weather = document.querySelector(".js-weather");
+
+const API_KEY = "?";
+const COORDS = 'coords';
+
+function getWeather(lat, lon){
+    fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+    ).then(function(response){
+        return response.json();
+    }).then(function(json){
+        const temperature = json.main.temp;
+        const place = json.name;
+        weather.innerText = `${place} / ${temperature}°C`;
+    });
+}
+
+function saveCoords(coordsObj){
+    localStorage.setItem(COORDS, JSON.stringify(coordsObj));
+}
+
+function handleGeoSuccess(position){
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const coordsObj = {
+        latitude,
+        longitude
+    };
+    saveCoords(coordsObj); 
+}
+
+function handleGeoError(){
+    console.log("Cant access geo location");
+}
+
+function askForCoords(){
+    navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError);
+}
+
+function loadCoords(){
+    const loadedCoords = localStorage.getItem(COORDS);
+    if(loadedCoords === null){
+        askForCoords();
+    } else {
+        const parseCoords = JSON.parse(loadedCoords);
+        getWeather(parseCoords.latitude, parseCoords.longitude);
+    }
+}
+
+function init(){
+    loadCoords();
+};
+
+init();
+</code></pre>
 4. Greeting
+<pre><code>
+const form = document.querySelector(".js-form"),
+    input = form.querySelector("input"),
+    greeting = document.querySelector(".js-greetings");
+
+const USER_LS = "currentUser", 
+    SHOWING_CN = "showing";
+
+function saveName(text){
+    localStorage.setItem(USER_LS, text);
+}
+
+function handleSubmit(event){
+    event.preventDefault();
+    const currentValue = input.value;
+    paintGreeting(currentValue);
+    saveName(currentValue);
+}
+
+function askForName() {
+    form.classList.add(SHOWING_CN);
+    form.addEventListener("submit", handleSubmit);
+}
+
+function paintGreeting(text){
+    form.classList.remove(SHOWING_CN);
+    greeting.classList.add(SHOWING_CN);
+    greeting.innerText = `Hello, ${text}`;
+}
+
+function loadName(){
+    const currentUser = localStorage.getItem(USER_LS);
+    if(currentUser === null){
+        askForName();
+    } else {
+        paintGreeting(currentUser);
+    }
+}
+
+function init(){
+    loadName();
+}
+
+init();
+</code></pre>
+
 5. Background
+<pre><code>
+const body = document.querySelector("body");
+
+const IMG_NUMBER = 10;
+
+function paintImage(imgNumber){
+    const image = new Image();
+    image.src = `images/${imgNumber + 1}.jpg`;
+    image.classList.add("bgImage");
+    body.appendChild(image);
+}
+
+function getRandom(){
+    const number = Math.floor(Math.random() * IMG_NUMBER);
+    return number;
+}
+
+function init(){
+    const randomNumber = getRandom();
+    paintImage(randomNumber);
+}
+
+init();
+</code></pre>
 
 [view live](https://seogineer.github.io/cloneMomentum/)
