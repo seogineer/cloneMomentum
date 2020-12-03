@@ -1,4 +1,6 @@
-# cloneMomentum
+# cloneMomentum 
+
+[view live](https://seogineer.github.io/cloneMomentum/)
 
 ### 기능
 1. Clock
@@ -221,5 +223,3 @@ function init(){
 
 init();
 </code></pre>
-
-[view live](https://seogineer.github.io/cloneMomentum/)
